@@ -3,7 +3,7 @@ defmodule Cards do
     Provides methods for creating and handling a deck of cards
   """
   def hello do
-    "return"
+    :world
   end
 
   @doc """
@@ -23,6 +23,16 @@ defmodule Cards do
     Enum.shuffle(deck)
   end
 
+  @doc """
+    Determines whether a deck contains a given card
+
+  ## Examples
+
+      iex> decks = Cards.create_deck
+      iex> Cards.contains?(decks, "Ace of Spades")
+      true
+
+  """
   def contains?(deck, card) do
     Enum.member?(deck, card)
   end
@@ -33,8 +43,9 @@ defmodule Cards do
    in the hand.
 
    ## Examples
-      iex> deck = Cards.create_deck
-      iex> {hand, deck} = Cards.deal(deck, 1)
+
+      iex> decks = Cards.create_deck
+      iex> {hand, _deck} = Cards.deal(decks, 1)
       iex> hand
       ["Ace of Spades"]
   """
